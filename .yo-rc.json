@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Gary Bortosky",
+      "authorEmail": "garybort@gmail.com",
+      "authorUrl": ""
+    }
+  }
+}

@@ -1,20 +1,52 @@
 {
   "name": "generator-webpack-ts",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Scaffold a website with TypeScript and webpack",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GaryB432/generator-webpack-ts.git"
   },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
   "keywords": [
+    "yeoman-generator",
     "typescript",
-    "webpack",
-    "scaffold"
+    "webpack"
   ],
   "author": "Gary Bortosky",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/GaryB432/generator-webpack-ts/issues"
+  },
+  "devDependencies": {
+    "coveralls": "^2.13.1",
+    "eslint": "^4.1.0",
+    "eslint-config-xo-space": "^0.16.0",
+    "nsp": "^2.6.3",
+    "yeoman-assert": "^3.0.0",
+    "yeoman-test": "^1.6.0"
+  },
+  "dependencies": {
+    "yeoman-generator": "^1.0.0",
+    "chalk": "^1.1.3",
+    "yosay": "^2.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "prepublish": "nsp check",
+    "pretest": "eslint . --fix",
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "jest": true,
+      "node": true
+    }
   },
   "homepage": "https://github.com/GaryB432/generator-webpack-ts#readme",
   "preferGlobal": true,
