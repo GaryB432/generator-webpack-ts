@@ -1,0 +1,24 @@
+{
+  "name": "generator-webpack-ts",
+  "version": "0.1.0",
+  "description": "Scaffold a website with TypeScript and webpack",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GaryB432/generator-webpack-ts.git"
+  },
+  "keywords": [
+    "typescript",
+    "webpack",
+    "scaffold"
+  ],
+  "author": "Gary Bortosky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GaryB432/generator-webpack-ts/issues"
+  },
+  "homepage": "https://github.com/GaryB432/generator-webpack-ts#readme",
+  "preferGlobal": true,
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  }
+}
