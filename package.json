@@ -1,6 +1,6 @@
 {
   "name": "generator-webpack-ts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Scaffold a website with TypeScript and webpack",
   "repository": {
     "type": "git",
@@ -11,7 +11,6 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "yeoman-generator",
     "typescript",
     "webpack"
   ],
