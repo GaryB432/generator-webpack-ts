@@ -6,35 +6,20 @@ const path = require('path');
 const Case = require('case');
 
 module.exports = class extends Generator {
-  _copyWebpack() {
-    this.fs.copy(
-      this.templatePath('webpack/dev-server.js'),
-      this.destinationPath('webpack/dev-server.js')
-    );
-    this.fs.copy(
-      this.templatePath('webpack/entry.js'),
-      this.destinationPath('webpack/entry.js')
-    );
-    this.fs.copy(
-      this.templatePath('webpack/module.js'),
-      this.destinationPath('webpack/module.js')
-    );
-    this.fs.copy(
-      this.templatePath('webpack/output.js'),
-      this.destinationPath('webpack/output.js')
-    );
-    this.fs.copy(
-      this.templatePath('webpack/plugins.js'),
-      this.destinationPath('webpack/plugins.js')
-    );
-    this.fs.copy(
-      this.templatePath('webpack/resolve.js'),
-      this.destinationPath('webpack/resolve.js')
-    );
+  prompting() {
+    return this.prompt([
+      {
+        type: 'confirm',
+        name: 'server',
+        message: 'Would you like to include simple server (serve-static)?',
+        default: true,
+      },
+    ]).then(answers => {
+      this.server = answers.server;
+    });
   }
 
   initializing() {
-    // Have Yeoman greet the user.
     this.log(
       yosay(
         'Welcome to the minimal ' +
@@ -93,6 +78,12 @@ module.exports = class extends Generator {
       this.destinationPath('README.md'),
       context
     );
+    if (this.server) {
+      this.fs.copy(
+        this.templatePath('server.js'),
+        this.destinationPath('server.js')
+      );
+    }
     this.fs.copy(
       this.templatePath('tsconfig.json'),
       this.destinationPath('tsconfig.json')
@@ -105,10 +96,12 @@ module.exports = class extends Generator {
       this.templatePath('webpack.config.js'),
       this.destinationPath('webpack.config.js')
     );
-    // This._copyWebpack();
   }
 
   install() {
     this.installDependencies({ npm: true, bower: false, yarn: false });
+    if (this.server) {
+      this.npmInstall(['serve-static', 'finalhandler']);
+    }
   }
 };
