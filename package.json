@@ -1,7 +1,7 @@
 {
   "name": "generator-webpack-ts",
-  "version": "4.0.0",
-  "description": "A Yeoman Generator for creating websites with TypeScript and Webpack",
+  "version": "4.1.0",
+  "description": "A Yeoman Generator for creating websites with TypeScript and Webpack 4",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GaryB432/generator-webpack-ts.git"
@@ -14,6 +14,7 @@
     "yeoman-generator",
     "typescript",
     "webpack",
+    "webpack 4",
     "jest"
   ],
   "author": {
