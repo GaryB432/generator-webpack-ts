@@ -33,6 +33,31 @@ module.exports = class extends Generator {
     this.cwd = path.basename(process.cwd());
   }
 
+  _writePackageJson(context) {
+    const tpl = this.fs.readJSON(this.templatePath('package.json'));
+
+    const deps = this.server
+      ? Object.assign(tpl.dependencies || {}, {
+          finalhandler: '^1.1.1',
+          'serve-static': '^1.13.2',
+        })
+      : tpl.dependencies;
+
+    // Tpl.name = context.appname,
+    // tpl.description = context.appname,
+
+    // tpl.dependencies.['serve-static'] = '^1.13.2';
+    // tpl.dependencies.['finalhandler'] = '^1.1.1'
+
+    const pkg = Object.assign(tpl, {
+      name: context.appname,
+      description: context.appname,
+      dependencies: deps,
+    });
+
+    this.fs.writeJSON(this.destinationPath('package.json'), pkg, null, 2);
+  }
+
   writing() {
     const context = { appname: Case.kebab(this.cwd) };
     this.fs.copy(
@@ -43,9 +68,10 @@ module.exports = class extends Generator {
       this.templatePath('_vscode/tasks.json'),
       this.destinationPath('.vscode/tasks.json')
     );
-    this.fs.copy(
+    this.fs.copyTpl(
       this.templatePath('src/public/index.html'),
-      this.destinationPath('src/public/index.html')
+      this.destinationPath('src/public/index.html'),
+      context
     );
     this.fs.copyTpl(
       this.templatePath('src/scripts/app.ts'),
@@ -61,18 +87,16 @@ module.exports = class extends Generator {
       this.destinationPath('src/scripts/greeter.ts')
     );
     this.fs.copy(
-      this.templatePath('src/styles/base.scss'),
-      this.destinationPath('src/styles/base.scss')
+      this.templatePath('src/styles/app.scss'),
+      this.destinationPath('src/styles/app.scss')
     );
     this.fs.copy(
       this.templatePath('_gitignore'),
       this.destinationPath('.gitignore')
     );
-    this.fs.copyTpl(
-      this.templatePath('package.json'),
-      this.destinationPath('package.json'),
-      context
-    );
+
+    this._writePackageJson(context);
+
     this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath('README.md'),
@@ -100,8 +124,5 @@ module.exports = class extends Generator {
 
   install() {
     this.installDependencies({ npm: true, bower: false, yarn: false });
-    if (this.server) {
-      this.npmInstall(['serve-static', 'finalhandler']);
-    }
   }
 };

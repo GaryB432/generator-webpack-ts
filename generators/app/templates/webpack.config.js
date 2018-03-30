@@ -1,16 +1,13 @@
 'use strict';
-var path = require('path');
+const path = require('path');
 
-var CopyWebpackPlugin = require('copy-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
-var ENV = process.env.npm_lifecycle_event;
-var isProd = ENV === 'build';
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: ['scripts/app.ts'],
+    app: ['scripts/app.ts', 'styles/app.scss'],
   },
 
   context: path.join(process.cwd(), 'src'),
@@ -19,6 +16,8 @@ module.exports = {
     path: path.join(process.cwd(), 'dist'),
     filename: 'scripts/[name].[hash].js',
   },
+
+  mode: 'none',
 
   module: {
     rules: [
@@ -32,11 +31,23 @@ module.exports = {
         loader: 'tslint-loader',
       },
       {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader!sass-loader',
-        }),
+        test: /\.(css|sass|scss)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
       },
     ],
   },
@@ -47,9 +58,9 @@ module.exports = {
       chunksSortMode: 'dependency',
     }),
 
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: 'css/[name].[hash].css',
-      disable: !isProd,
+      chunkFilename: 'css/[id].[hash].css',
     }),
 
     new CopyWebpackPlugin([{ from: 'public' }]),
@@ -61,7 +72,7 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: path.join(process.cwd(), 'dist'),
+    contentBase: path.resolve(process.cwd(), 'dist'),
     clientLogLevel: 'info',
     port: 8080,
     inline: true,
@@ -69,6 +80,18 @@ module.exports = {
     watchOptions: {
       aggregateTimeout: 300,
       poll: 500,
+    },
+  },
+
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+      },
     },
   },
 

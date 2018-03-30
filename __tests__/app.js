@@ -13,7 +13,7 @@ const mostFiles = [
   'src/scripts/app.ts',
   'src/scripts/greeter.spec.ts',
   'src/scripts/greeter.ts',
-  'src/styles/base.scss',
+  'src/styles/app.scss',
   'tsconfig.json',
   'tslint.json',
   'webpack.config.js',
