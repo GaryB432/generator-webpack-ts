@@ -1,11 +1,11 @@
-const finalhandler = require('finalhandler');
-const http = require('http');
-const serveStatic = require('serve-static');
+import finalhandler from 'finalhandler';
+import { createServer } from 'http';
+import serveStatic from 'serve-static';
 const PORT = process.env.PORT || 3000;
 
 const serve = serveStatic('dist', { index: ['index.html'] });
 
-var server = http.createServer((req, res) => {
+const server = createServer((req, res) => {
   serve(req, res, finalhandler(req, res));
 });
 
