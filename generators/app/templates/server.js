@@ -1,13 +1,36 @@
-import finalhandler from 'finalhandler';
-import { createServer } from 'http';
-import serveStatic from 'serve-static';
+const express = require('express');
+const app = express();
+
 const PORT = process.env.PORT || 3000;
+const oneDay = 86400000;
 
-const serve = serveStatic('dist', { index: ['index.html'] });
+function nocache() {
+  return function nocache(req, res, next) {
+    console.log(req.url, req.method);
+    if (
+      req.url === '/service-worker.js' ||
+      req.url.startsWith('/precache-manifest')
+    ) {
+      res.setHeader('Surrogate-Control', 'no-store');
+      res.setHeader(
+        'Cache-Control',
+        'no-store, no-cache, must-revalidate, proxy-revalidate'
+      );
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+    }
+    next();
+  };
+}
 
-const server = createServer((req, res) => {
-  serve(req, res, finalhandler(req, res));
-});
+app.use(nocache());
 
-server.listen(PORT);
+app.use(
+  express.static(__dirname + '/dist', {
+    index: ['index.html'],
+    // maxAge: oneDay,
+  })
+);
+
+app.listen(PORT);
 console.log(`listening on ${PORT}`);

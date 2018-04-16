@@ -4,6 +4,7 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { InjectManifest, GenerateSW } = require('workbox-webpack-plugin');
 
 const isProd = true;
 
@@ -67,6 +68,11 @@ module.exports = {
     }),
 
     new CopyWebpackPlugin([{ from: 'public' }]),
+
+    new InjectManifest({
+      swSrc: path.join('src', 'sw.js'),
+      swDest: 'service-worker.js',
+    }),
   ],
 
   resolve: {

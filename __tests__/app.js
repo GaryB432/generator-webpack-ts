@@ -10,6 +10,7 @@ const mostFiles = [
   'package.json',
   'README.md',
   'src/public/index.html',
+  'src/public/img/yeoman-003.png',
   'src/scripts/app.ts',
   'src/scripts/greeter.spec.ts',
   'src/scripts/greeter.ts',
@@ -29,6 +30,12 @@ describe('generator-webpack-ts:app', () => {
   it('creates files', () => {
     assert.file(mostFiles);
     assert.noFile('server.js');
+    assert.noFile('src/sw.js');
+    assert.noFile('src/public/manifest.json');
+  });
+
+  it('adds dependencies', () => {
+    assert.noFileContent('package.json', 'workbox');
   });
 });
 
@@ -40,6 +47,21 @@ describe('generator-webpack-ts:app with server', () => {
   });
 
   it('creates files', () => {
-    assert.file([...mostFiles, 'server.js']);
+    assert.file([
+      ...mostFiles,
+      'server.js',
+      'src/sw.js',
+      'src/public/manifest.json',
+    ]);
+  });
+
+  it('adds dependencies', () => {
+    const pkgJson = {
+      dependencies: {
+        'workbox-webpack-plugin': '^3.0.1',
+        express: '^4.16.3',
+      },
+    };
+    assert.jsonFileContent('package.json', pkgJson);
   });
 });

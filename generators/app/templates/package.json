@@ -4,12 +4,12 @@
   "description": "<%= appname %>",
   "scripts": {
     "clean": "rimraf dist",
-    "start": "webpack-dev-server",
-    "format": "prettier --write \"src/**/*.ts\" --single-quote --trailing-comma es5",
+    "start": "webpack-serve ./webpack.config.js",
+    "format": "prettier --write \"src/{scripts,styles}/**/*\" \"src/sw.ts\" --single-quote --trailing-comma es5",
     "prebuild": "npm run format",
-    "build": "npm run clean && webpack",
+    "build": "npm run clean && webpack --config ./webpack.config.js",
     "test": "jest",
-    "test-watch": "jest --watch"
+    "test-watch": "jest --watchAll"
   },
   "license": "ISC",
   "devDependencies": {
@@ -36,7 +36,10 @@
     "typescript": "^2.8.1",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13",
-    "webpack-dev-server": "^3.1.1"
+    "webpack-serve": "^0.3.1"
+  },
+  "dependencies": {
+    "tslib": "^1.9.0"
   },
   "engines": {
     "node": ">=6.0.0"
