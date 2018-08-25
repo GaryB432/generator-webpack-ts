@@ -17,7 +17,7 @@ const mostFiles = [
   'src/styles/app.scss',
   'tsconfig.json',
   'tslint.json',
-  'webpack.config.js',
+  'webpack.config.js'
 ];
 
 describe('generator-webpack-ts:app', () => {
@@ -47,20 +47,15 @@ describe('generator-webpack-ts:app with server', () => {
   });
 
   it('creates files', () => {
-    assert.file([
-      ...mostFiles,
-      'server.js',
-      'src/sw.js',
-      'src/public/manifest.json',
-    ]);
+    assert.file([...mostFiles, 'server.js', 'src/sw.js', 'src/public/manifest.json']);
   });
 
   it('adds dependencies', () => {
     const pkgJson = {
       dependencies: {
         'workbox-webpack-plugin': '^3.0.1',
-        express: '^4.16.3',
-      },
+        express: '^4.16.3'
+      }
     };
     assert.jsonFileContent('package.json', pkgJson);
   });

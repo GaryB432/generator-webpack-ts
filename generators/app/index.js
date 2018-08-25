@@ -11,11 +11,9 @@ module.exports = class extends Generator {
       {
         type: 'confirm',
         name: 'server',
-        message: `Would you like to include ${chalk.green(
-          'Workbox'
-        )} service worker?`,
-        default: true,
-      },
+        message: `Would you like to include ${chalk.green('Workbox')} service worker?`,
+        default: true
+      }
     ]).then(answers => {
       this.server = answers.server;
     });
@@ -23,11 +21,7 @@ module.exports = class extends Generator {
 
   initializing() {
     this.log(
-      yosay(
-        'Welcome to the minimal ' +
-          chalk.red('Webpack TypeScript') +
-          ' generator!'
-      )
+      yosay('Welcome to the minimal ' + chalk.red('Webpack TypeScript') + ' generator!')
     );
 
     this.log(chalk.gray('Coming right up'));
@@ -45,8 +39,8 @@ module.exports = class extends Generator {
       this.fs.extendJSON(this.destinationPath('package.json'), {
         dependencies: {
           'workbox-webpack-plugin': '^3.0.1',
-          express: '^4.16.3',
-        },
+          express: '^4.16.3'
+        }
       });
     }
   }
@@ -72,9 +66,7 @@ module.exports = class extends Generator {
       context
     );
     this.fs.copyTpl(
-      this.templatePath(
-        this.server ? 'src/scripts/app-sw.ts' : 'src/scripts/app.ts'
-      ),
+      this.templatePath(this.server ? 'src/scripts/app-sw.ts' : 'src/scripts/app.ts'),
       this.destinationPath('src/scripts/app.ts'),
       context
     );
@@ -90,10 +82,7 @@ module.exports = class extends Generator {
       this.templatePath('src/styles/app.scss'),
       this.destinationPath('src/styles/app.scss')
     );
-    this.fs.copy(
-      this.templatePath('_gitignore'),
-      this.destinationPath('.gitignore')
-    );
+    this.fs.copy(this.templatePath('_gitignore'), this.destinationPath('.gitignore'));
 
     this._writePackageJson(context);
 
@@ -103,10 +92,7 @@ module.exports = class extends Generator {
       context
     );
     if (this.server) {
-      this.fs.copy(
-        this.templatePath('server.js'),
-        this.destinationPath('server.js')
-      );
+      this.fs.copy(this.templatePath('server.js'), this.destinationPath('server.js'));
       this.fs.copyTpl(
         this.templatePath('src/sw.js'),
         this.destinationPath('src/sw.js'),
@@ -122,14 +108,9 @@ module.exports = class extends Generator {
       this.templatePath('tsconfig.json'),
       this.destinationPath('tsconfig.json')
     );
+    this.fs.copy(this.templatePath('tslint.json'), this.destinationPath('tslint.json'));
     this.fs.copy(
-      this.templatePath('tslint.json'),
-      this.destinationPath('tslint.json')
-    );
-    this.fs.copy(
-      this.templatePath(
-        this.server ? 'webpack.config-sw.js' : 'webpack.config.js'
-      ),
+      this.templatePath(this.server ? 'webpack.config-sw.js' : 'webpack.config.js'),
       this.destinationPath('webpack.config.js')
     );
   }
