@@ -24,7 +24,7 @@ describe('generator-webpack-ts:app', () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, '../generators/app'))
-      .withPrompts({ server: false });
+      .withPrompts({ workbox: false });
   });
 
   it('creates files', () => {
@@ -39,11 +39,11 @@ describe('generator-webpack-ts:app', () => {
   });
 });
 
-describe('generator-webpack-ts:app with server', () => {
+describe('generator-webpack-ts:app with workbox', () => {
   beforeAll(() => {
     return helpers
       .run(path.join(__dirname, '../generators/app'))
-      .withPrompts({ server: true });
+      .withPrompts({ workbox: true });
   });
 
   it('creates files', () => {
@@ -53,7 +53,7 @@ describe('generator-webpack-ts:app with server', () => {
   it('adds dependencies', () => {
     const pkgJson = {
       dependencies: {
-        'workbox-webpack-plugin': '^3.0.1',
+        'workbox-webpack-plugin': '^3.4.1',
         express: '^4.16.3'
       }
     };

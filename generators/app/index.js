@@ -10,12 +10,12 @@ module.exports = class extends Generator {
     return this.prompt([
       {
         type: 'confirm',
-        name: 'server',
+        name: 'workbox',
         message: `Would you like to include ${chalk.green('Workbox')} service worker?`,
         default: true
       }
     ]).then(answers => {
-      this.server = answers.server;
+      this.workbox = answers.workbox;
     });
   }
 
@@ -35,7 +35,7 @@ module.exports = class extends Generator {
       this.destinationPath('package.json'),
       context
     );
-    if (this.server) {
+    if (this.workbox) {
       this.fs.extendJSON(this.destinationPath('package.json'), {
         dependencies: {
           'workbox-webpack-plugin': '^3.4.1',
@@ -66,7 +66,7 @@ module.exports = class extends Generator {
       context
     );
     this.fs.copyTpl(
-      this.templatePath(this.server ? 'src/scripts/app-sw.ts' : 'src/scripts/app.ts'),
+      this.templatePath(this.workbox ? 'src/scripts/app-sw.ts' : 'src/scripts/app.ts'),
       this.destinationPath('src/scripts/app.ts'),
       context
     );
@@ -91,7 +91,7 @@ module.exports = class extends Generator {
       this.destinationPath('README.md'),
       context
     );
-    if (this.server) {
+    if (this.workbox) {
       this.fs.copy(this.templatePath('server.js'), this.destinationPath('server.js'));
       this.fs.copyTpl(
         this.templatePath('src/sw.js'),
@@ -110,7 +110,7 @@ module.exports = class extends Generator {
     );
     this.fs.copy(this.templatePath('tslint.json'), this.destinationPath('tslint.json'));
     this.fs.copy(
-      this.templatePath(this.server ? 'webpack.config-sw.js' : 'webpack.config.js'),
+      this.templatePath(this.workbox ? 'webpack.config-sw.js' : 'webpack.config.js'),
       this.destinationPath('webpack.config.js')
     );
   }
