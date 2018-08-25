@@ -37,6 +37,15 @@ describe('generator-webpack-ts:app', () => {
   it('adds dependencies', () => {
     assert.noFileContent('package.json', 'workbox');
   });
+
+  it('adds format without sw', () => {
+    const pkgJson = {
+      scripts: {
+        format: 'prettier --write "src/{scripts,styles}/**/*"'
+      }
+    };
+    assert.jsonFileContent('package.json', pkgJson);
+  });
 });
 
 describe('generator-webpack-ts:app with workbox', () => {
@@ -55,6 +64,15 @@ describe('generator-webpack-ts:app with workbox', () => {
       dependencies: {
         'workbox-webpack-plugin': '^3.4.1',
         express: '^4.16.3'
+      }
+    };
+    assert.jsonFileContent('package.json', pkgJson);
+  });
+
+  it('adds format with sw', () => {
+    const pkgJson = {
+      scripts: {
+        format: 'prettier --write "src/{scripts,styles}/**/*" "src/sw.ts"'
       }
     };
     assert.jsonFileContent('package.json', pkgJson);

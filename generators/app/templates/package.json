@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rimraf dist",
     "start": "webpack-serve ./webpack.config.js",
-    "format": "prettier --write \"src/{scripts,styles}/**/*\" \"src/sw.ts\"",
+    "format": "prettier --write \"src/{scripts,styles}/**/*\"",
     "prebuild": "npm run format",
     "build": "npm run clean && webpack --config ./webpack.config.js",
     "test": "jest",
