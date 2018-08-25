@@ -38,7 +38,7 @@ module.exports = class extends Generator {
     if (this.server) {
       this.fs.extendJSON(this.destinationPath('package.json'), {
         dependencies: {
-          'workbox-webpack-plugin': '^3.0.1',
+          'workbox-webpack-plugin': '^3.4.1',
           express: '^4.16.3'
         }
       });
