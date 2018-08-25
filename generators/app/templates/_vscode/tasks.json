@@ -1,25 +1,37 @@
 {
-  "version": "0.1.0",
-  "command": "npm",
-  "isShellCommand": true,
-  "args": [
-    "run"
-  ],
-  "showOutput": "always",
+  "version": "2.0.0",
   "tasks": [
     {
-      "taskName": "build",
-      "isBuildCommand": true
+      "type": "npm",
+      "label": "clean",
+      "script": "clean",
+      "problemMatcher": []
     },
     {
-      "taskName": "clean"
+      "type": "npm",
+      "label": "build",
+      "script": "build",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": []
     },
     {
-      "taskName": "lint"
+      "type": "npm",
+      "label": "format",
+      "script": "format",
+      "problemMatcher": []
     },
     {
-      "taskName": "test",
-      "isTestCommand": true
+      "type": "npm",
+      "label": "test",
+      "script": "test",
+      "group": {
+        "kind": "test",
+        "isDefault": true
+      },
+      "problemMatcher": []
     }
   ]
 }
