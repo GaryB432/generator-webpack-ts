@@ -1,10 +1,11 @@
 {
   "name": "generator-webpack-ts",
-  "version": "4.2.0",
-  "description": "A Yeoman Generator for creating websites with TypeScript and Webpack 4",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GaryB432/generator-webpack-ts.git"
+  "version": "4.3.0",
+  "description": "A Yeoman Generator for creating websites with TypeScript and Webpack",
+  "author": {
+    "name": "Gary Bortosky",
+    "email": "gary@bortosky.com",
+    "url": "https://github.com/GaryB432"
   },
   "files": [
     "generators"
@@ -14,53 +15,59 @@
     "yeoman-generator",
     "typescript",
     "webpack",
-    "webpack 4",
     "workbox",
     "jest"
   ],
-  "author": {
-    "name": "Gary Bortosky",
-    "email": "gary@bortosky.com",
-    "url": "https://github.com/GaryB432"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/GaryB432/generator-webpack-ts/issues"
-  },
   "devDependencies": {
-    "coveralls": "^2.13.1",
-    "eslint": "^4.1.0",
-    "eslint-config-xo-space": "^0.16.0",
-    "jest": "^20.0.4",
-    "nsp": "^2.6.3",
-    "prettier": "^1.5.3",
-    "yeoman-assert": "^3.0.0",
-    "yeoman-test": "^1.6.0"
+    "coveralls": "^3.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-xo": "^0.20.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "jest": "^22.0.6",
+    "prettier": "^1.11.1",
+    "yeoman-assert": "^3.1.0",
+    "yeoman-test": "^1.7.0"
+  },
+  "engines": {
+    "npm": ">= 4.0.0"
   },
   "dependencies": {
-    "case": "^1.5.1",
-    "chalk": "^1.1.3",
-    "yeoman-generator": "^1.0.0",
-    "yosay": "^2.0.0"
+    "case": "^1.5.5",
+    "chalk": "^2.1.0",
+    "yeoman-generator": "^2.0.1",
+    "yosay": "^2.0.1"
   },
   "jest": {
     "testEnvironment": "node"
   },
   "scripts": {
-    "format": "prettier --write \"**/*.js\" --single-quote --trailing-comma es5",
-    "prepare": "nsp check",
-    "pretest": "eslint . --fix && npm run format",
+    "prepublishOnly": "nsp check",
+    "pretest": "eslint .",
     "test": "jest"
   },
   "eslintConfig": {
-    "extends": "xo-space",
+    "extends": [
+      "xo",
+      "prettier"
+    ],
     "env": {
       "jest": true,
       "node": true
-    }
+    },
+    "rules": {
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "printWidth": 90
+        }
+      ]
+    },
+    "plugins": [
+      "prettier"
+    ]
   },
-  "preferGlobal": true,
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org"
-  }
+  "repository": "GaryB432/generator-webpack-ts",
+  "license": "ISC"
 }
