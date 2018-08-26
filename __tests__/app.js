@@ -38,6 +38,10 @@ describe('generator-webpack-ts:app', () => {
     assert.noFileContent('package.json', 'workbox');
   });
 
+  it('does not mention serviceWorker', () => {
+    assert.noFileContent('src/scripts/app.ts', 'serviceWorker');
+  });
+
   it('adds format without sw', () => {
     const pkgJson = {
       scripts: {
@@ -67,6 +71,10 @@ describe('generator-webpack-ts:app with workbox', () => {
       }
     };
     assert.jsonFileContent('package.json', pkgJson);
+  });
+
+  it('mentions serviceWorker', () => {
+    assert.fileContent('src/scripts/app.ts', 'serviceWorker');
   });
 
   it('adds format with sw', () => {
