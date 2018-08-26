@@ -1,5 +1,18 @@
-#greeting {
+body {
+  font: 20px sans-serif;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3rem;
   background-color: green;
   border: 10px solid cornflowerblue;
-  padding: 10px;
+  padding: 3rem;
+  text-align: center;
+}
+
+img {
+  height: 350px;
 }

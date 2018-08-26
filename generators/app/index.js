@@ -38,7 +38,7 @@ module.exports = class extends Generator {
     if (this.workbox) {
       this.fs.extendJSON(this.destinationPath('package.json'), {
         scripts: {
-          'format': "prettier --write \"src/{scripts,styles}/**/*\" \"src/sw.ts\""
+          format: 'prettier --write "src/{scripts,styles}/**/*" "src/sw.ts"'
         },
         dependencies: {
           'workbox-webpack-plugin': '^3.4.1',

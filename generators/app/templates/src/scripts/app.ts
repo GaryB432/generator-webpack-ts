@@ -4,5 +4,5 @@ const greeter: Greeter = new Greeter('<%= appname %>');
 
 const el = document.getElementById('greeting');
 if (el) {
-  el.innerHTML = greeter.greet();
+  el.innerText = greeter.greet();
 }
