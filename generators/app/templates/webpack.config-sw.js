@@ -6,7 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { InjectManifest, GenerateSW } = require('workbox-webpack-plugin');
 
-const isProd = true;
+const mode = 'production';
 
 module.exports = {
   entry: {
@@ -16,12 +16,12 @@ module.exports = {
   context: path.join(process.cwd(), 'src'),
 
   output: {
-    publicPath: isProd ? '/' : 'http://localhost:8080/',
+    publicPath: mode === 'production' ? '/' : 'http://localhost:8080/',
     path: path.join(process.cwd(), 'dist'),
     filename: 'scripts/[name].[hash].js',
   },
 
-  mode: 'production',
+  mode,
 
   module: {
     rules: [
@@ -40,16 +40,9 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              sourceMap: true,
-            },
           },
           {
             loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
           },
         ],
       },
