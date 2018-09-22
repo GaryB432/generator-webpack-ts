@@ -1,9 +1,5 @@
-# generator-webpack-ts 
-
-[![Build Status](https://secure.travis-ci.org/GaryB432/generator-webpack-ts.png?branch=master)](https://travis-ci.org/GaryB432/generator-webpack-ts)
-[![npm version](https://badge.fury.io/js/generator-webpack-ts.svg)](http://badge.fury.io/js/generator-webpack-ts)
-
-Generate a scaffold project using [TypeScript](https://www.typescriptlang.org/) and [webpack](https://webpack.github.io/).
+# generator-webpack-ts [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+> A Yeoman Generator for creating websites with TypeScript and Webpack
 
 ## Installation
 
@@ -31,7 +27,7 @@ The generator will prompt if you want to include the [Workbox](https://developer
 
 ## License
 
-ISC © [Gary Bortosky]()
+ISC © [Gary Bortosky](https://github.com/GaryB432)
 
 
 [npm-image]: https://badge.fury.io/js/generator-webpack-ts.svg
@@ -40,5 +36,3 @@ ISC © [Gary Bortosky]()
 [travis-url]: https://travis-ci.org/GaryB432/generator-webpack-ts
 [daviddm-image]: https://david-dm.org/GaryB432/generator-webpack-ts.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/GaryB432/generator-webpack-ts
-[coveralls-image]: https://coveralls.io/repos/GaryB432/generator-webpack-ts/badge.svg
-[coveralls-url]: https://coveralls.io/r/GaryB432/generator-webpack-ts
