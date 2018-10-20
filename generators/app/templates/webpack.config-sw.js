@@ -74,7 +74,7 @@ module.exports = {
   },
 
   devServer: {
-    contentBase: path.resolve(process.cwd(), 'dist'),
+    contentBase: './dist',
     clientLogLevel: 'info',
     port: 8080,
     inline: true,
@@ -97,5 +97,5 @@ module.exports = {
     },
   },
 
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
 };

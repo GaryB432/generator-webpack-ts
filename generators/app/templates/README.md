@@ -9,6 +9,9 @@ npm install
 
 ## Run webpack
 ```
+npx webpack
+```
+```
 npm run build
 ```
 
