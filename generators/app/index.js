@@ -49,7 +49,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const context = { appname: Case.kebab(this.cwd) };
+    const context = { appname: Case.kebab(this.cwd), genstamp: new Date().toString() };
     this.fs.copy(
       this.templatePath('_vscode/settings.json'),
       this.destinationPath('.vscode/settings.json')
