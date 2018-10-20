@@ -1,6 +1,6 @@
 {
   "name": "generator-webpack-ts",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description":
     "A Yeoman Generator for creating websites with TypeScript and Webpack",
   "author": {
