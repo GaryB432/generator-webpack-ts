@@ -24,6 +24,8 @@ module.exports = class extends Generator {
       yosay('Welcome to the minimal ' + chalk.red('Webpack TypeScript') + ' generator!')
     );
 
+    this.composeWith(require.resolve('../classlib'), { arguments: ['Greeter'] });
+
     this.log(chalk.gray('Coming right up'));
 
     this.cwd = path.basename(process.cwd());
@@ -72,14 +74,6 @@ module.exports = class extends Generator {
       this.templatePath(this.workbox ? 'src/scripts/app-sw.ts' : 'src/scripts/app.ts'),
       this.destinationPath('src/scripts/app.ts'),
       context
-    );
-    this.fs.copy(
-      this.templatePath('src/scripts/greeter.spec.ts'),
-      this.destinationPath('src/scripts/greeter.spec.ts')
-    );
-    this.fs.copy(
-      this.templatePath('src/scripts/greeter.ts'),
-      this.destinationPath('src/scripts/greeter.ts')
     );
     this.fs.copy(
       this.templatePath('src/styles/app.scss'),
