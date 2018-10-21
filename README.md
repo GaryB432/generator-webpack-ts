@@ -21,7 +21,7 @@ The generator will prompt if you want to include the [Workbox](https://developer
 You can add new classes with the subgenerator
 
 ```bash
-yo webpack-ts classib another-greeter
+yo webpack-ts:classib another-greeter
 ```
 
 ## Getting To Know Yeoman
