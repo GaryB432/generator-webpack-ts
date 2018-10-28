@@ -51,7 +51,11 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    const context = { appname: Case.kebab(this.cwd), genstamp: new Date().toString() };
+    const context = {
+      appname: Case.kebab(this.cwd),
+      genstamp: new Date().toString(),
+      workbox: this.workbox
+    };
     this.fs.copy(
       this.templatePath('_vscode/settings.json'),
       this.destinationPath('.vscode/settings.json')
@@ -71,7 +75,7 @@ module.exports = class extends Generator {
       context
     );
     this.fs.copyTpl(
-      this.templatePath(this.workbox ? 'src/scripts/app-sw.ts' : 'src/scripts/app.ts'),
+      this.templatePath('src/scripts/app.ts'),
       this.destinationPath('src/scripts/app.ts'),
       context
     );
@@ -106,9 +110,10 @@ module.exports = class extends Generator {
       this.destinationPath('tsconfig.json')
     );
     this.fs.copy(this.templatePath('tslint.json'), this.destinationPath('tslint.json'));
-    this.fs.copy(
-      this.templatePath(this.workbox ? 'webpack.config-sw.js' : 'webpack.config.js'),
-      this.destinationPath('webpack.config.js')
+    this.fs.copyTpl(
+      this.templatePath('webpack.config.js'),
+      this.destinationPath('webpack.config.js'),
+      context
     );
   }
 
