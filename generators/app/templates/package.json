@@ -42,8 +42,11 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|js)$",
-    "moduleFileExtensions": ["ts", "js"],
-    "testEnvironment": "node"
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testEnvironment": "jsdom"
   },
   "prettier": {
     "printWidth": 100,
