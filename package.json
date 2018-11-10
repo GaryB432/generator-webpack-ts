@@ -1,21 +1,22 @@
 {
   "name": "generator-webpack-ts",
-  "version": "5.2.0",
-  "description": "A Yeoman Generator for creating websites with TypeScript and Webpack",
+  "version": "5.3.0",
+  "description":
+    "A Yeoman Generator for creating websites with TypeScript and Webpack",
   "author": {
     "name": "Gary Bortosky",
     "email": "gary@bortosky.com",
     "url": "https://github.com/GaryB432"
   },
-  "files": [
-    "generators"
-  ],
+  "files": ["generators"],
   "main": "generators/index.js",
   "keywords": [
     "yeoman-generator",
     "typescript",
     "webpack",
     "workbox",
+    "sass",
+    "scss",
     "jest"
   ],
   "devDependencies": {
@@ -43,20 +44,11 @@
     "testEnvironment": "node"
   },
   "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.json": [
-      "prettier --write",
-      "git add"
-    ]
+    "*.js": ["eslint --fix", "git add"],
+    "*.json": ["prettier --write", "git add"]
   },
   "eslintConfig": {
-    "extends": [
-      "xo",
-      "prettier"
-    ],
+    "extends": ["xo", "prettier"],
     "env": {
       "jest": true,
       "node": true
@@ -70,9 +62,7 @@
         }
       ]
     },
-    "plugins": [
-      "prettier"
-    ]
+    "plugins": ["prettier"]
   },
   "scripts": {
     "pretest": "eslint .",
