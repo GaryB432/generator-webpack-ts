@@ -10,7 +10,7 @@ const mode = 'production';
 
 module.exports = {
   entry: {
-    app: ['scripts/app.ts', 'styles/app.scss'],
+    '<%= appname %>': ['scripts/app.ts'],
   },
 
   context: path.join(process.cwd(), 'src'),
