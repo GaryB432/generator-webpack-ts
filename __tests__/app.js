@@ -41,15 +41,6 @@ describe('generator-webpack-ts:app', () => {
   it('does not mention serviceWorker', () => {
     assert.noFileContent('src/scripts/app.ts', 'serviceWorker');
   });
-
-  it('adds format without sw', () => {
-    const pkgJson = {
-      scripts: {
-        format: 'prettier --write "src/**/*.{js,ts,scss,html}"'
-      }
-    };
-    assert.jsonFileContent('package.json', pkgJson);
-  });
 });
 
 describe('generator-webpack-ts:app with workbox', () => {

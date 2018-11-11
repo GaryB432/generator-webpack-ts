@@ -6,7 +6,7 @@
     "clean": "rimraf dist",
     "start": "webpack-dev-server --open",
     "watch": "webpack --watch",
-    "format": "prettier --write \"src/**/*.{js,ts,scss,html}\"",
+    "format": "prettier --write \"{__tests__,src}/**/*.{js,ts,scss,html}\"",
     "prebuild": "npm run format",
     "build": "npm run clean && webpack --config ./webpack.config.js",
     "test": "karma start --single-run --browsers ChromeHeadless karma.config.js",
