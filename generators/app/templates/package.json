@@ -6,7 +6,7 @@
     "clean": "rimraf dist",
     "start": "webpack-dev-server --open",
     "watch": "webpack --watch",
-    "format": "prettier --write \"src/{scripts,styles}/**/*\"",
+    "format": "prettier --write \"src/**/*.{js,ts,scss,html}\"",
     "prebuild": "npm run format",
     "build": "npm run clean && webpack --config ./webpack.config.js",
     "test": "jest",
@@ -21,7 +21,7 @@
     "jest": "^23.6.0",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
-    "prettier": "^1.14.3",
+    "prettier": "^1.15.2",
     "sass-loader": "^7.1.0",
     "ts-jest": "^23.10.4",
     "ts-loader": "^5.2.2",
@@ -42,8 +42,11 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|js)$",
-    "moduleFileExtensions": ["ts", "js"],
-    "testEnvironment": "node"
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ],
+    "testEnvironment": "jsdom"
   },
   "prettier": {
     "printWidth": 100,

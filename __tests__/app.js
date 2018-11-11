@@ -43,7 +43,7 @@ describe('generator-webpack-ts:app', () => {
   it('adds format without sw', () => {
     const pkgJson = {
       scripts: {
-        format: 'prettier --write "src/{scripts,styles}/**/*"'
+        format: 'prettier --write "src/**/*.{js,ts,scss,html}"'
       }
     };
     assert.jsonFileContent('package.json', pkgJson);
@@ -73,14 +73,5 @@ describe('generator-webpack-ts:app with workbox', () => {
 
   it('mentions serviceWorker', () => {
     assert.fileContent('src/scripts/app.ts', 'serviceWorker');
-  });
-
-  it('adds format with sw', () => {
-    const pkgJson = {
-      scripts: {
-        format: 'prettier --write "src/{scripts,styles}/**/*" "src/sw.ts"'
-      }
-    };
-    assert.jsonFileContent('package.json', pkgJson);
   });
 });

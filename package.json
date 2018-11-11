@@ -1,6 +1,6 @@
 {
   "name": "generator-webpack-ts",
-  "version": "5.2.0",
+  "version": "6.0.0",
   "description": "A Yeoman Generator for creating websites with TypeScript and Webpack",
   "author": {
     "name": "Gary Bortosky",
@@ -16,6 +16,8 @@
     "typescript",
     "webpack",
     "workbox",
+    "sass",
+    "scss",
     "jest"
   ],
   "devDependencies": {
