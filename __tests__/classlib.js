@@ -13,7 +13,7 @@ describe('generator-webpack-ts:classlib', () => {
 
   it('creates files', () => {
     assert.file([
-      'src/scripts/customer-inventory-item.spec.ts',
+      '__tests__/customer-inventory-item.spec.ts',
       'src/scripts/customer-inventory-item.ts',
       'src/styles/customer-inventory-item.scss'
     ]);

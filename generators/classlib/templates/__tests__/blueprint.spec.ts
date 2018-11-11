@@ -1,4 +1,4 @@
-import { <%= classTypeName %> } from './<%= className %>';
+import { <%= classTypeName %> } from '../src/scripts/<%= className %>';
 
 describe('<%= classTypeName %>', () => {
   let greeter: <%= classTypeName %>;
