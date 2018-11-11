@@ -6,6 +6,9 @@ describe('<%= classTypeName %>', () => {
     greeter = new <%= classTypeName %>('testing');
   });
   it('should greet', () => {
-    expect(greeter.greet()).toBe('Welcome to testing!');
+    const container = document.createElement('div');
+    greeter.start(container);
+    expect(Array.from(container.classList)).toContain('greeter');
+    expect(container.innerHTML).toEqual('<h1>Welcome to testing!</h1>');
   });
 });

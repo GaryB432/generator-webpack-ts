@@ -4,10 +4,7 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-<% if (workbox) { %>
-const { InjectManifest, GenerateSW } = require('workbox-webpack-plugin');
-<% } %>
-
+<% if (workbox) { %>const { InjectManifest, GenerateSW } = require('workbox-webpack-plugin');<% } %>
 
 const mode = 'production';
 

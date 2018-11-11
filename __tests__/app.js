@@ -5,9 +5,11 @@ var helpers = require('yeoman-test');
 
 const mostFiles = [
   '.gitignore',
+  '.travis.yml',
   '.vscode/settings.json',
   '.vscode/tasks.json',
   'package.json',
+  'karma.config.js',
   'README.md',
   'src/public/index.html',
   'src/public/img/yeoman-003.png',
