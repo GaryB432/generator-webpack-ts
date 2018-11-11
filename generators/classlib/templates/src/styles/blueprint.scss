@@ -1,11 +1,9 @@
 .<%= className %> {
-  .notice {
-    font-family: monospace;
-    background-color: #cbcbcb;
-    padding: 1rem;
-  }
-
-  img {
-    height: 350px;
+  h1 {
+    font-size: 3rem;
+    background-color: green;
+    border: 10px solid cornflowerblue;
+    padding: 3rem;
+    text-align: center;
   }
 }

@@ -81,9 +81,14 @@ module.exports = class extends Generator {
       this.destinationPath('src/styles/app.scss')
     );
     this.fs.copy(this.templatePath('_gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copy(this.templatePath('_travis.yml'), this.destinationPath('.travis.yml'));
 
     this._writePackageJson(context);
 
+    this.fs.copy(
+      this.templatePath('karma.config.js'),
+      this.destinationPath('karma.config.js')
+    );
     this.fs.copyTpl(
       this.templatePath('README.md'),
       this.destinationPath('README.md'),

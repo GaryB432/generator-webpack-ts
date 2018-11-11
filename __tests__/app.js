@@ -5,9 +5,11 @@ var helpers = require('yeoman-test');
 
 const mostFiles = [
   '.gitignore',
+  '.travis.yml',
   '.vscode/settings.json',
   '.vscode/tasks.json',
   'package.json',
+  'karma.config.js',
   'README.md',
   'src/public/index.html',
   'src/public/img/yeoman-003.png',
@@ -38,15 +40,6 @@ describe('generator-webpack-ts:app', () => {
 
   it('does not mention serviceWorker', () => {
     assert.noFileContent('src/scripts/app.ts', 'serviceWorker');
-  });
-
-  it('adds format without sw', () => {
-    const pkgJson = {
-      scripts: {
-        format: 'prettier --write "src/**/*.{js,ts,scss,html}"'
-      }
-    };
-    assert.jsonFileContent('package.json', pkgJson);
   });
 });
 
