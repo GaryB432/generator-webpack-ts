@@ -9,8 +9,8 @@
     "format": "prettier --write \"{__tests__,src}/**/*.{js,ts,scss,html}\"",
     "prebuild": "npm run format",
     "build": "npm run clean && webpack --config ./webpack.config.js",
-    "test": "karma start --single-run --browsers ChromeHeadless karma.config.js",
-    "test-watch": "karma start --browsers ChromeHeadless karma.config.js"
+    "test": "karma start --single-run --browsers ChromeHeadless",
+    "test-watch": "karma start --browsers ChromeHeadless"
   },
   "license": "ISC",
   "devDependencies": {

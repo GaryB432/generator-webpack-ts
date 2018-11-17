@@ -9,7 +9,7 @@ const mostFiles = [
   '.vscode/settings.json',
   '.vscode/tasks.json',
   'package.json',
-  'karma.config.js',
+  'karma.conf.js',
   'README.md',
   'src/public/index.html',
   'src/public/img/yeoman-003.png',

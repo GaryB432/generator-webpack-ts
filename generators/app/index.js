@@ -86,8 +86,8 @@ module.exports = class extends Generator {
     this._writePackageJson(context);
 
     this.fs.copy(
-      this.templatePath('karma.config.js'),
-      this.destinationPath('karma.config.js')
+      this.templatePath('karma.conf.js'),
+      this.destinationPath('karma.conf.js')
     );
     this.fs.copyTpl(
       this.templatePath('README.md'),
