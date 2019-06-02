@@ -54,11 +54,11 @@ describe('generator-webpack-ts:app with workbox', () => {
     assert.file([...mostFiles, 'server.js', 'src/sw.js', 'src/public/manifest.json']);
   });
 
-  it('adds dependencies', () => {
+  it('adds devDependencies', () => {
     const pkgJson = {
-      dependencies: {
-        'workbox-webpack-plugin': '^3.6.2',
-        express: '^4.16.4'
+      devDependencies: {
+        'workbox-webpack-plugin': '^4.3.1',
+        express: '^4.17.1'
       }
     };
     assert.jsonFileContent('package.json', pkgJson);
