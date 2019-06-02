@@ -6,8 +6,6 @@ workbox.core.setCacheNameDetails({
   googleAnalytics: 'ga',
 });
 
-workbox.precaching.precache(['/img/yeoman-003.png']);
-
 workbox.core.skipWaiting();
 workbox.core.clientsClaim();
 
