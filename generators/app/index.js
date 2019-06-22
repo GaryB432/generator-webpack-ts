@@ -111,7 +111,6 @@ module.exports = class extends Generator {
       this.templatePath('tsconfig.json'),
       this.destinationPath('tsconfig.json')
     );
-    this.fs.copy(this.templatePath('tslint.json'), this.destinationPath('tslint.json'));
     this.fs.copyTpl(
       this.templatePath('webpack.config.js'),
       this.destinationPath('webpack.config.js'),
