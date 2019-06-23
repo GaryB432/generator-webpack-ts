@@ -16,7 +16,6 @@ const mostFiles = [
   'src/scripts/app.ts',
   'src/styles/app.scss',
   'tsconfig.json',
-  'tslint.json',
   'webpack.config.js'
 ];
 
