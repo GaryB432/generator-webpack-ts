@@ -19,3 +19,9 @@ npm run build
 ```
 npm start
 ```
+
+
+## Lint your code
+```
+npm run lint
+```

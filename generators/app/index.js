@@ -80,6 +80,7 @@ module.exports = class extends Generator {
       this.templatePath('src/styles/app.scss'),
       this.destinationPath('src/styles/app.scss')
     );
+    this.fs.copy(this.templatePath('_eslintrc.js'), this.destinationPath('.eslintrc.js'));
     this.fs.copy(this.templatePath('_gitignore'), this.destinationPath('.gitignore'));
     this.fs.copy(this.templatePath('_travis.yml'), this.destinationPath('.travis.yml'));
 
@@ -107,6 +108,7 @@ module.exports = class extends Generator {
         context
       );
     }
+
     this.fs.copy(
       this.templatePath('tsconfig.json'),
       this.destinationPath('tsconfig.json')

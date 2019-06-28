@@ -32,7 +32,7 @@ module.exports = {
       {
         enforce: 'pre',
         test: /\.ts$/,
-        loader: 'tslint-loader',
+        loader: 'eslint-loader',
       },
       {
         test: /\.(css|sass|scss)$/,

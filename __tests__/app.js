@@ -4,6 +4,7 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
 const mostFiles = [
+  '.eslintrc.js',
   '.gitignore',
   '.travis.yml',
   '.vscode/settings.json',
