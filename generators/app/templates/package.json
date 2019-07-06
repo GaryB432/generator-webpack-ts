@@ -6,7 +6,7 @@
     "clean": "rimraf dist",
     "start": "webpack-dev-server --open",
     "watch": "webpack --watch",
-    "format": "prettier --write \"{__tests__,src}/**/*.{js,ts,scss,html,md}\"",
+    "format": "prettier --write \"{__tests__,src}/**/*.{js,ts,scss,html}\"",
     "lint": "eslint \"**/*.ts\" -f eslint-formatter-friendly",
     "prebuild": "npm run format",
     "pretest": "npm run lint",
