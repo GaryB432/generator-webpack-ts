@@ -7,12 +7,19 @@
 npm install
 ```
 
-## Run webpack
-```
-npx webpack
-```
+## Build your project
 ```
 npm run build
+```
+
+## Test your project
+```
+npm test
+```
+
+## Lint your project
+```
+npm run lint
 ```
 
 ## Start http-server

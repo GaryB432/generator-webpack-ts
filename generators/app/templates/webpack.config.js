@@ -4,7 +4,6 @@ const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const FriendlyFormatter = require('eslint-formatter-friendly');
 <% if (workbox) { %>const { InjectManifest, GenerateSW } = require('workbox-webpack-plugin');<% } %>
 
 const mode = 'production';
@@ -29,57 +28,6 @@ module.exports = {
       {
         test: /\.ts$/,
         loader: 'ts-loader',
-      },
-      {
-        enforce: 'pre',
-        test: /\.ts$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader',
-        options: {
-          formatter: FriendlyFormatter,
-          parser: '@typescript-eslint/parser',
-          parserOptions: {
-            ecmaVersion: 2018,
-            sourceType: 'module',
-          },
-          extends: [
-            'plugin:@typescript-eslint/recommended',
-            'prettier',
-            'prettier/@typescript-eslint',
-          ],
-          plugins: ['@typescript-eslint', 'prettier'],
-          rules: {
-            'prettier/prettier': 1,
-            '@typescript-eslint/indent': 0,
-            '@typescript-eslint/no-parameter-properties': 0,
-            '@typescript-eslint/member-ordering': [
-              2,
-              {
-                default: [
-                  'public-static-field',
-                  'protected-static-field',
-                  'private-static-field',
-                  'public-instance-field',
-                  'protected-instance-field',
-                  'private-instance-field',
-                  'public-constructor',
-                  'protected-constructor',
-                  'private-constructor',
-                  'public-instance-method',
-                  'protected-instance-method',
-                  'private-instance-method',
-                  'public-static-method',
-                  'protected-static-method',
-                  'private-static-method',
-                ],
-              },
-            ],
-          },
-          env: {
-            browser: true,
-            node: true,
-          },
-        },
       },
       {
         test: /\.(css|sass|scss)$/,
@@ -108,14 +56,14 @@ module.exports = {
     }),
 
     new CopyWebpackPlugin([{ from: 'public' }]),
-    <% if (workbox) { %>
+<% if (workbox) { %>
 
-      new InjectManifest({
-        swSrc: path.join('src', 'sw.js'),
-        swDest: 'service-worker.js',
-      }),
-  <% } %>
-    ],
+    new InjectManifest({
+      swSrc: path.join('src', 'sw.js'),
+      swDest: 'service-worker.js',
+    }),
+<% } %>
+  ],
 
   resolve: {
     modules: ['node_modules', path.resolve(process.cwd(), 'src')],
