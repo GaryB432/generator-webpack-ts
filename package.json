@@ -18,6 +18,7 @@
     "workbox",
     "sass",
     "scss",
+    "eslint",
     "karma"
   ],
   "devDependencies": {
