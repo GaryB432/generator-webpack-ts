@@ -1,6 +1,6 @@
 {
   "name": "generator-webpack-ts",
-  "version": "6.3.0",
+  "version": "6.4.0",
   "description": "A Yeoman Generator for creating websites with TypeScript, Sass and Webpack",
   "author": {
     "name": "Gary Bortosky",
