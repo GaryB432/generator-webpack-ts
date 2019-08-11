@@ -4,7 +4,9 @@ var assert = require('yeoman-assert');
 var helpers = require('yeoman-test');
 
 const mostFiles = [
+  '.eslintrc.js',
   '.gitignore',
+  '.gitattributes',
   '.travis.yml',
   '.vscode/settings.json',
   '.vscode/tasks.json',
@@ -16,7 +18,6 @@ const mostFiles = [
   'src/scripts/app.ts',
   'src/styles/app.scss',
   'tsconfig.json',
-  'tslint.json',
   'webpack.config.js'
 ];
 

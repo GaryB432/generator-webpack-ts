@@ -81,6 +81,10 @@ module.exports = class extends Generator {
       this.destinationPath('src/styles/app.scss')
     );
     this.fs.copy(this.templatePath('_gitignore'), this.destinationPath('.gitignore'));
+    this.fs.copy(
+      this.templatePath('_gitattributes'),
+      this.destinationPath('.gitattributes')
+    );
     this.fs.copy(this.templatePath('_travis.yml'), this.destinationPath('.travis.yml'));
 
     this._writePackageJson(context);
@@ -111,7 +115,7 @@ module.exports = class extends Generator {
       this.templatePath('tsconfig.json'),
       this.destinationPath('tsconfig.json')
     );
-    this.fs.copy(this.templatePath('tslint.json'), this.destinationPath('tslint.json'));
+    this.fs.copy(this.templatePath('_eslintrc.js'), this.destinationPath('.eslintrc.js'));
     this.fs.copyTpl(
       this.templatePath('webpack.config.js'),
       this.destinationPath('webpack.config.js'),

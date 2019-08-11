@@ -30,11 +30,6 @@ module.exports = {
         loader: 'ts-loader',
       },
       {
-        enforce: 'pre',
-        test: /\.ts$/,
-        loader: 'tslint-loader',
-      },
-      {
         test: /\.(css|sass|scss)$/,
         use: [
           MiniCssExtractPlugin.loader,
