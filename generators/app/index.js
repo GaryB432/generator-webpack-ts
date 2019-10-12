@@ -111,6 +111,7 @@ module.exports = class extends Generator {
         context
       );
     }
+
     this.fs.copy(
       this.templatePath('tsconfig.json'),
       this.destinationPath('tsconfig.json')
