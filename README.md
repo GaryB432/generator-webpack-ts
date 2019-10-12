@@ -38,7 +38,7 @@ ISC © [Gary Bortosky](https://github.com/GaryB432)
 
 [npm-image]: https://badge.fury.io/js/generator-webpack-ts.svg
 [npm-url]: https://npmjs.org/package/generator-webpack-ts
-[travis-image]: https://travis-ci.com/GaryB432/generator-webpack-ts.svg?branch=master
-[travis-url]: https://travis-ci.com/GaryB432/generator-webpack-ts
+[travis-image]: https://travis-ci.org/GaryB432/generator-webpack-ts.svg?branch=master
+[travis-url]: https://travis-ci.org/GaryB432/generator-webpack-ts
 [daviddm-image]: https://david-dm.org/GaryB432/generator-webpack-ts.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/GaryB432/generator-webpack-ts
