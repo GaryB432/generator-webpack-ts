@@ -1,7 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
 @import 'greeter';
 
 body {
-  font: 20px sans-serif;
+  font: 20px 'Lato', sans-serif;
   display: flex;
   flex-flow: column;
   align-items: center;
