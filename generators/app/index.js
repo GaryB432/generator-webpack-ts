@@ -90,7 +90,7 @@ module.exports = class extends Generator {
     this._writePackageJson(context);
 
     this.fs.copy(
-      this.templatePath('karma.conf.js'),
+      this.templatePath('_karma.conf.js.txt'),
       this.destinationPath('karma.conf.js')
     );
     this.fs.copyTpl(
@@ -116,9 +116,12 @@ module.exports = class extends Generator {
       this.templatePath('tsconfig.json'),
       this.destinationPath('tsconfig.json')
     );
-    this.fs.copy(this.templatePath('_eslintrc.js'), this.destinationPath('.eslintrc.js'));
+    this.fs.copy(
+      this.templatePath('_eslintrc.js.txt'),
+      this.destinationPath('.eslintrc.js')
+    );
     this.fs.copyTpl(
-      this.templatePath('webpack.config.js'),
+      this.templatePath('_webpack.config.js.txt'),
       this.destinationPath('webpack.config.js'),
       context
     );
